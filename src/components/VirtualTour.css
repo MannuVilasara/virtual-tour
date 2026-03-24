@@ -1,6 +1,7 @@
 /* ── Root container ─────────────────────────────────────────────────────── */
 .vt-root {
   background: #0a0a0a;
+  touch-action: none;
 }
 
 /* ── Scene transition overlay ────────────────────────────────────────────── */

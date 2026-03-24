@@ -93,8 +93,23 @@ export const VirtualTour: React.FC<VirtualTourProps> = ({
     [currentSceneId, onSceneChange, triggerTransition]
   );
 
+  const panRef = useRef<any>(null);
+
   const handlePannellumLoad = useCallback(() => {
     console.log(`Pannellum loaded scene`);
+
+    // Improve smoothness by increasing friction if viewer is accessible
+    if (panRef.current) {
+      const viewer = panRef.current.getViewer();
+      if (viewer && viewer.getConfig()) {
+        // Pannellum doesn't have a public setFriction, but we can try to nudge it
+        // and adjust other runtime settings for smoothness
+        const config = viewer.getConfig();
+        config.friction = 0.5; // High friction = smoother, more controlled stop
+        config.touchPanSpeed = 0.6; // Reduce touch sensitivity
+      }
+    }
+
     // Only fade out if we are currently showing the overlay due to a transition
     if (overlayPhase === 'visible' || overlayPhase === 'fade-in') {
       if (overlayTimerRef.current) clearTimeout(overlayTimerRef.current);
@@ -124,19 +139,20 @@ export const VirtualTour: React.FC<VirtualTourProps> = ({
     <div className={`relative ${className} vt-root`}>
       <Pannellum
         key={currentScene.id}
+        ref={panRef}
         width="100%"
         height="100%"
         image={`/virtual-tour/${currentScene.url}`}
         pitch={0}
         yaw={0}
-        hfov={100}
+        hfov={90}
         autoLoad
         crossOrigin="anonymous"
-        autoRotate={-2}
+        autoRotate={-1}
         compass={false}
         showZoomCtrl={false}
         showFullscreenCtrl={false}
-        mouseZoom={true}
+        mouseZoom={false}
         onLoad={handlePannellumLoad}
       >
         {currentScene.hotspots.map((hotspot, idx) => {
