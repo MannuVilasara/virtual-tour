@@ -66,7 +66,7 @@ function buildMarkers(scene: (typeof tourData)[number]) {
         id: hs.id || `hs-${idx}`,
         position: { yaw: `${yaw}deg`, pitch: `${pitch}deg` },
         html: hotspotHTML(hs.title ?? ''),
-        size: { width: 140, height: 100 }, // Increased size to properly fit the icon and text label underneath
+        size: { width: 140, height: 100 }, 
         tooltip: { content: hs.title ?? '', position: 'top center' },
         data: { targetSceneId: hs.targetSceneId },
         anchor: 'center center',
@@ -81,11 +81,8 @@ export const VirtualTour: React.FC<VirtualTourProps> = ({
   className = 'w-full h-full',
 }) => {
   const [searchParams, setSearchParams] = useSearchParams();
-  
-  // URL defines the source of truth for the target scene
+
   const urlSceneId = searchParams.get('sceneId') || DEFAULT_SCENE_ID;
-  
-  // We use local state to track what is *currently* displayed while transitioning
   const [uiSceneId, setUiSceneId] = useState<string>(urlSceneId);
 
   const viewerRef         = useRef<any>(null);
@@ -97,7 +94,6 @@ export const VirtualTour: React.FC<VirtualTourProps> = ({
     [uiSceneId]
   );
   
-  // Run this effect when the URL changes (from Back button or our own push)
   useEffect(() => {
     if (urlSceneId !== uiSceneId && !isTransitioningRef.current && viewerRef.current) {
       const targetScene = tourData.find((s) => s.id === urlSceneId);
@@ -105,23 +101,18 @@ export const VirtualTour: React.FC<VirtualTourProps> = ({
         performTransition(targetScene);
       }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [urlSceneId]);
 
   const performTransition = (targetScene: typeof tourData[0]) => {
     if (!viewerRef.current || !markersPluginRef.current || isTransitioningRef.current) return;
     isTransitioningRef.current = true;
-
-    // Remove current markers right before transition for a cleaner visually
     markersPluginRef.current.clearMarkers();
 
-    // Use PSV's native smooth crossfade. We provide a large transition value (e.g. 500ms) 
     viewerRef.current.setPanorama(targetScene.url, { 
-      transition: 500, // 500ms crossfade
+      transition: 500, 
       showLoader: false,
-      zoomTo: 50
+      zoomTo: 70
     }).then(() => {
-      // Transition done: update markers and local UI badge state
       markersPluginRef.current.setMarkers(buildMarkers(targetScene) as any);
       setUiSceneId(targetScene.id);
       isTransitioningRef.current = false;
@@ -131,13 +122,11 @@ export const VirtualTour: React.FC<VirtualTourProps> = ({
     });
   };
 
-  // Click handler triggered from PSV markers
+
   const handleHotspotClickRef = useRef<(sceneId: string) => void>(() => {});
   useEffect(() => {
     handleHotspotClickRef.current = (targetId: string) => {
       if (!targetId || targetId === urlSceneId || isTransitioningRef.current) return;
-      // Push the new URL parameter. The useEffect above will catch the URL change and trigger `performTransition`
-      // This ensures back/forward browser buttons use the exact same logic as clicking markers.
       setSearchParams({ sceneId: targetId }, { replace: true });
     };
   });
@@ -154,12 +143,6 @@ export const VirtualTour: React.FC<VirtualTourProps> = ({
 
   return (
     <div className={`relative ${className} vt-root`}>
-      {/* 
-        We freeze the src prop to the VERY FIRST scene it mounts with.
-        ReactPhotoSphereViewer wrapper internally monitors changes to `src` (prop). 
-        To avoid the wrapper automatically calling `setPanorama` and conflicting with our manual 
-        smooth transition call, we use `initialSceneUrl` which never changes.
-      */}
       <ReactPhotoSphereViewer
         src={initialSceneUrl}
         height="100%"
@@ -177,14 +160,13 @@ export const VirtualTour: React.FC<VirtualTourProps> = ({
           [
             AutorotatePlugin,
             { 
-              autostartDelay: 2500, // 2.5s delay before rotating rotates like pendulum
+              autostartDelay: 2500, 
               autorotateSpeed: '1.5rpm',
               autorotatePitch: 0,
             }
           ],
           [
             MarkersPlugin,
-            // Initial markers only. We manage updates manually.
             { markers: buildMarkers(uiScene) },
           ],
         ]}
@@ -204,7 +186,6 @@ export const VirtualTour: React.FC<VirtualTourProps> = ({
             });
           }
 
-          // If URL changed before ready due to some weird race
           if (urlSceneId !== uiSceneId && !isTransitioningRef.current) {
             const targetScene = tourData.find((s) => s.id === urlSceneId);
             if (targetScene) performTransition(targetScene);
@@ -212,7 +193,6 @@ export const VirtualTour: React.FC<VirtualTourProps> = ({
         }}
       />
 
-      {/* Floating scene badge */}
       <div className="absolute top-6 left-6 z-50 bg-black/60 backdrop-blur-md px-5 py-3 rounded-2xl flex items-center gap-3 border border-white/10 shadow-2xl pointer-events-none">
         <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-400">
           <span className="text-white font-bold text-xs">360</span>

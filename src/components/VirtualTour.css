@@ -1,10 +1,9 @@
-/* ── Root container ─────────────────────────────────────────────────────── */
 .vt-root {
   background: #0a0a0a;
   touch-action: none;
 }
 
-/* ── Scene transition overlay ────────────────────────────────────────────── */
+
 .vt-transition-overlay {
   position: absolute;
   inset: 0;
@@ -41,22 +40,18 @@
   opacity: 0;
 }
 
-/* ── Photo Sphere Viewer overrides ───────────────────────────────────────── */
 
-/* Hide the default PSV navbar / caption bar */
 .psv-navbar,
 .psv-caption {
   display: none !important;
 }
 
-/* Remove default loader ring color tint */
+
 .psv-loader-container {
   background: transparent !important;
 }
 
-/* ── Hotspot marker icon ─────────────────────────────────────────────────── */
 
-/* PSV wraps image markers in .psv-marker--image */
 .psv-marker--image {
   cursor: pointer !important;
   transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
@@ -69,7 +64,7 @@
           drop-shadow(0px 0px 8px rgba(59, 130, 246, 0.9));
 }
 
-/* ── PSV tooltip styling ─────────────────────────────────────────────────── */
+
 .psv-tooltip {
   background: rgba(0, 0, 0, 0.85) !important;
   border-radius: 6px !important;
@@ -84,7 +79,7 @@
   border-top-color: rgba(0, 0, 0, 0.85) !important;
 }
 
-/* ── HTML hotspot marker styles ─────────────────────────────────── */
+
 .vt-hotspot-marker {
   cursor: pointer;
   display: flex;
