@@ -12,21 +12,17 @@ export default defineConfig({
     babel({ presets: [reactCompilerPreset()] }),
     ViteImageOptimizer({
       jpg: {
-        quality: 80,
+        quality: 60,
       },
       png: {
-        quality: 80,
+        quality: 60,
       },
       webp: {
-        quality: 80,
+        quality: 60,
       },
       avif: {
         quality: 80,
       },
     }),
-  ],
-  server: {
-    host: '0.0.0.0',
-    allowedHosts: ["sister-assign-projectors-camel.trycloudflare.com"],
-  },
+  ]
 });
