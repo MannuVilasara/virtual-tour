@@ -3,9 +3,14 @@ import { useSearchParams } from 'react-router-dom';
 import { ReactPhotoSphereViewer } from 'react-photo-sphere-viewer';
 import { MarkersPlugin } from '@photo-sphere-viewer/markers-plugin';
 import { AutorotatePlugin } from '@photo-sphere-viewer/autorotate-plugin';
+import { Cache } from '@photo-sphere-viewer/core';
 import '@photo-sphere-viewer/markers-plugin/index.css';
 import './VirtualTour.css';
 import tourData from './tourData.json';
+
+Cache.enabled = true;
+Cache.ttl = 300;
+Cache.maxItems = 3;
 
 export interface VirtualTourProps {
   className?: string;
