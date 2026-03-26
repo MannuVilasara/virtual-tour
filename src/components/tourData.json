@@ -3029,23 +3029,6 @@
         }
       },
       {
-        "id": "2KnocBJUb",
-        "title": "Badminton Court",
-        "targetSceneId": "Zy7RRieeT",
-        "coords": {
-          "plane": {
-            "x": 945.3918562731204,
-            "y": -199.79000000000008,
-            "z": 354.27684818475274
-          },
-          "scene": {
-            "x": 4636.4425442674665,
-            "y": -980.1759706214208,
-            "z": 1739.0429294274493
-          }
-        }
-      },
-      {
         "id": "WtkLuGMEC",
         "title": "Shake Point Garden",
         "targetSceneId": "JB6M-XMI1",
@@ -3059,6 +3042,23 @@
             "x": -3201.9022430910545,
             "y": -1188.5921559937315,
             "z": -3716.864238073101
+          }
+        }
+      },
+      {
+        "id": "hs_zlo615",
+        "title": "Way To G-Block",
+        "targetSceneId": "wkymnhdmu",
+        "coords": {
+          "plane": {
+            "x": 1969.1153561565416,
+            "y": -261.921341252296,
+            "z": 232.3401066219399
+          },
+          "scene": {
+            "x": 1969.1153561565416,
+            "y": -261.921341252296,
+            "z": 232.3401066219399
           }
         }
       }
@@ -5989,6 +5989,23 @@
             "z": -446.5218093059023
           }
         }
+      },
+      {
+        "id": "hs_rlmcw2",
+        "title": "Hostel Corrdior",
+        "targetSceneId": "pfnwnklco",
+        "coords": {
+          "plane": {
+            "x": -1874.7236666268536,
+            "y": -191.5840621781781,
+            "z": 669.8557463428036
+          },
+          "scene": {
+            "x": -1874.7236666268536,
+            "y": -191.5840621781781,
+            "z": 669.8557463428036
+          }
+        }
       }
     ]
   },
@@ -6767,6 +6784,23 @@
             "z": 4883.606416963811
           }
         }
+      },
+      {
+        "id": "hs_z1zuq5",
+        "title": "G-Block Enterance",
+        "targetSceneId": "wkymnhdmu",
+        "coords": {
+          "plane": {
+            "x": 1744.2962098752919,
+            "y": -198.21648621193256,
+            "z": -958.1967213513547
+          },
+          "scene": {
+            "x": 1744.2962098752919,
+            "y": -198.21648621193256,
+            "z": -958.1967213513547
+          }
+        }
       }
     ]
   },
@@ -7269,6 +7303,48 @@
     ]
   },
   {
+    "id": "wkymnhdmu",
+    "title": "G-Block Enterance",
+    "url": "/virtual-tour/images/scene-wkymnhdmu.jpg",
+    "previewUrl": "/virtual-tour/images/scene-thumb-wkymnhdmu.jpg",
+    "hotspots": [
+      {
+        "id": "hs_tgkxo7",
+        "title": "Badminton Court",
+        "targetSceneId": "Zy7RRieeT",
+        "coords": {
+          "plane": {
+            "x": 387.1345103848356,
+            "y": -216.51705477743968,
+            "z": 1950.191589526423
+          },
+          "scene": {
+            "x": 387.1345103848356,
+            "y": -216.51705477743968,
+            "z": 1950.191589526423
+          }
+        }
+      },
+      {
+        "id": "hs_t6iv5w",
+        "title": "Way To Bfcet",
+        "targetSceneId": "Fnqj68rvtw",
+        "coords": {
+          "plane": {
+            "x": 1292.9150052127636,
+            "y": -252.3679042603129,
+            "z": -1504.8857864286367
+          },
+          "scene": {
+            "x": 1292.9150052127636,
+            "y": -252.3679042603129,
+            "z": -1504.8857864286367
+          }
+        }
+      }
+    ]
+  },
+  {
     "id": "FgNELwWn9w",
     "title": "LHF 401 - Tutorial Room",
     "url": "/virtual-tour/images/scene-FgNELwWn9w.jpg",
@@ -7302,5 +7378,114 @@
     "url": "/virtual-tour/images/scene-QijPgKKrat.jpg",
     "previewUrl": "/virtual-tour/images/scene-thumb-QijPgKKrat.jpg",
     "hotspots": []
+  },
+  {
+    "id": "pfnwnklco",
+    "title": "Girl's Hostel Corrdior",
+    "url": "/virtual-tour/images/scene-pfnwnklco.jpg",
+    "previewUrl": "/virtual-tour/images/scene-thumb-pfnwnklco.jpg",
+    "hotspots": [
+      {
+        "id": "hs_7sm0ed",
+        "title": "Hostel Room ",
+        "targetSceneId": "nkjaxsbul",
+        "coords": {
+          "plane": {
+            "x": 1842.519906642863,
+            "y": -352.7172281999499,
+            "z": 693.3332175481856
+          },
+          "scene": {
+            "x": 1842.519906642863,
+            "y": -352.7172281999499,
+            "z": 693.3332175481856
+          }
+        }
+      },
+      {
+        "id": "hs_s32w5n",
+        "title": "Hostel Study Room",
+        "targetSceneId": "qmrvbhdeg",
+        "coords": {
+          "plane": {
+            "x": -518.3272336502196,
+            "y": -1000.5154126599341,
+            "z": 1652.3636972187546
+          },
+          "scene": {
+            "x": -518.3272336502196,
+            "y": -1000.5154126599341,
+            "z": 1652.3636972187546
+          }
+        }
+      },
+      {
+        "id": "hs_qjmv2s",
+        "title": "Exit",
+        "targetSceneId": "bbkseplou",
+        "coords": {
+          "plane": {
+            "x": 803.132482313419,
+            "y": -748.1782263506262,
+            "z": 1671.8874236825627
+          },
+          "scene": {
+            "x": 803.132482313419,
+            "y": -748.1782263506262,
+            "z": 1671.8874236825627
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "nkjaxsbul",
+    "title": "Girl's Hostel Room",
+    "url": "/virtual-tour/images/scene-nkjaxsbul.jpg",
+    "previewUrl": "/virtual-tour/images/scene-thumb-nkjaxsbul.jpg",
+    "hotspots": [
+      {
+        "id": "hs_6brhq8",
+        "title": "Girl's Hostel Corrdior",
+        "targetSceneId": "pfnwnklco",
+        "coords": {
+          "plane": {
+            "x": -915.5942591767275,
+            "y": -779.9082463083473,
+            "z": -1597.9456436008256
+          },
+          "scene": {
+            "x": -915.5942591767275,
+            "y": -779.9082463083473,
+            "z": -1597.9456436008256
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "qmrvbhdeg",
+    "title": "Girl's Hostel Room",
+    "url": "/virtual-tour/images/scene-qmrvbhdeg.jpg",
+    "previewUrl": "/virtual-tour/images/scene-thumb-qmrvbhdeg.jpg",
+    "hotspots": [
+      {
+        "id": "hs_3xtjcs",
+        "title": "Hostel Corrdior",
+        "targetSceneId": "pfnwnklco",
+        "coords": {
+          "plane": {
+            "x": -265.426703193399,
+            "y": -930.7344971501589,
+            "z": 1750.2234031821547
+          },
+          "scene": {
+            "x": -265.426703193399,
+            "y": -930.7344971501589,
+            "z": 1750.2234031821547
+          }
+        }
+      }
+    ]
   }
 ]
