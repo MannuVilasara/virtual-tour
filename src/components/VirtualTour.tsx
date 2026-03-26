@@ -1,12 +1,12 @@
-import React, { useMemo, useEffect, useRef, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { ReactPhotoSphereViewer } from 'react-photo-sphere-viewer';
-import { MarkersPlugin } from '@photo-sphere-viewer/markers-plugin';
-import { AutorotatePlugin } from '@photo-sphere-viewer/autorotate-plugin';
-import { Cache } from '@photo-sphere-viewer/core';
-import '@photo-sphere-viewer/markers-plugin/index.css';
-import './VirtualTour.css';
-import tourData from './tourData.json';
+import React, { useMemo, useEffect, useRef, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { ReactPhotoSphereViewer } from "react-photo-sphere-viewer";
+import { MarkersPlugin } from "@photo-sphere-viewer/markers-plugin";
+import { AutorotatePlugin } from "@photo-sphere-viewer/autorotate-plugin";
+import { Cache } from "@photo-sphere-viewer/core";
+import "@photo-sphere-viewer/markers-plugin/index.css";
+import "./VirtualTour.css";
+import tourData from "./tourData.json";
 
 Cache.enabled = true;
 Cache.ttl = 300;
@@ -24,7 +24,7 @@ interface Coords {
 
 function coordsToPitchYaw(coords: Coords) {
   const { x, y, z } = coords;
-  const yaw   = Math.atan2(-z, x) * (180 / Math.PI);
+  const yaw = Math.atan2(-z, x) * (180 / Math.PI);
   const pitch = Math.atan2(y, Math.sqrt(x * x + z * z)) * (180 / Math.PI);
   return { pitch, yaw };
 }
@@ -51,7 +51,7 @@ function hotspotHTML(title: string) {
         <circle cx="24" cy="34" r="3" fill="white" opacity="0.8"/>
       </svg>
     </div>
-    ${title ? `<div style="background:rgba(0,0,0,0.65); padding:4px 10px; border-radius:12px; border: 1px solid rgba(255,255,255,0.2); color:white; font-size:13px; font-weight:600; white-space:nowrap; pointer-events:none; text-shadow: 0 1px 2px rgba(0,0,0,0.8); backdrop-filter: blur(4px);">${title}</div>` : ''}
+    ${title ? `<div style="background:rgba(0,0,0,0.65); padding:4px 10px; border-radius:12px; border: 1px solid rgba(255,255,255,0.2); color:white; font-size:13px; font-weight:600; white-space:nowrap; pointer-events:none; text-shadow: 0 1px 2px rgba(0,0,0,0.8); backdrop-filter: blur(4px);">${title}</div>` : ""}
   </div>`;
 }
 
@@ -65,37 +65,76 @@ function buildMarkers(scene: (typeof tourData)[number]) {
       return {
         id: hs.id || `hs-${idx}`,
         position: { yaw: `${yaw}deg`, pitch: `${pitch}deg` },
-        html: hotspotHTML(hs.title ?? ''),
-        size: { width: 140, height: 100 }, 
-        tooltip: { content: hs.title ?? '', position: 'top center' },
+        html: hotspotHTML(hs.title ?? ""),
+        size: { width: 140, height: 100 },
+        tooltip: { content: hs.title ?? "", position: "top center" },
         data: { targetSceneId: hs.targetSceneId },
-        anchor: 'center center',
+        anchor: "center center",
       };
     })
     .filter(Boolean);
 }
 
-const DEFAULT_SCENE_ID =  "5Pd9XFNOX";
+const DEFAULT_SCENE_ID = "5Pd9XFNOX";
 
 export const VirtualTour: React.FC<VirtualTourProps> = ({
-  className = 'w-full h-full',
+  className = "w-full h-full",
 }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const urlSceneId = searchParams.get('sceneId') || DEFAULT_SCENE_ID;
+  const urlSceneId = searchParams.get("sceneId") || DEFAULT_SCENE_ID;
   const [uiSceneId, setUiSceneId] = useState<string>(urlSceneId);
 
-  const viewerRef         = useRef<any>(null);
-  const markersPluginRef  = useRef<any>(null);
+  const viewerRef = useRef<any>(null);
+  const markersPluginRef = useRef<any>(null);
   const isTransitioningRef = useRef(false);
 
   const uiScene = useMemo(
     () => tourData.find((s) => s.id === uiSceneId) ?? tourData[0],
-    [uiSceneId]
+    [uiSceneId],
   );
-  
+
+  const imageCacheRef = useRef<Map<string, HTMLImageElement>>(new Map());
+
   useEffect(() => {
-    if (urlSceneId !== uiSceneId && !isTransitioningRef.current && viewerRef.current) {
+    if (!uiScene?.hotspots) return;
+
+    const neededUrls = new Set<string>();
+    uiScene.hotspots.forEach((hs: any) => {
+      if (hs.targetSceneId && hs.targetSceneId !== uiScene.id) {
+        const targetScene = tourData.find((s) => s.id === hs.targetSceneId);
+        if (targetScene?.url) {
+          neededUrls.add(targetScene.url);
+        }
+      }
+    });
+
+    const cache = imageCacheRef.current;
+
+    // Remove images that are no longer needed
+    for (const [url, img] of cache.entries()) {
+      if (!neededUrls.has(url)) {
+        img.src = ""; // Free memory
+        cache.delete(url);
+      }
+    }
+
+    // Preload new images
+    for (const url of neededUrls) {
+      if (!cache.has(url)) {
+        const img = new Image();
+        img.src = url;
+        cache.set(url, img);
+      }
+    }
+  }, [uiScene]);
+
+  useEffect(() => {
+    if (
+      urlSceneId !== uiSceneId &&
+      !isTransitioningRef.current &&
+      viewerRef.current
+    ) {
       const targetScene = tourData.find((s) => s.id === urlSceneId);
       if (targetScene) {
         performTransition(targetScene);
@@ -103,30 +142,38 @@ export const VirtualTour: React.FC<VirtualTourProps> = ({
     }
   }, [urlSceneId]);
 
-  const performTransition = (targetScene: typeof tourData[0]) => {
-    if (!viewerRef.current || !markersPluginRef.current || isTransitioningRef.current) return;
+  const performTransition = (targetScene: (typeof tourData)[0]) => {
+    if (
+      !viewerRef.current ||
+      !markersPluginRef.current ||
+      isTransitioningRef.current
+    )
+      return;
     isTransitioningRef.current = true;
     markersPluginRef.current.clearMarkers();
 
-    viewerRef.current.setPanorama(targetScene.url, { 
-      transition: 500, 
-      showLoader: false,
-      zoomTo: 70
-    }).then(() => {
-      markersPluginRef.current.setMarkers(buildMarkers(targetScene) as any);
-      setUiSceneId(targetScene.id);
-      isTransitioningRef.current = false;
-    }).catch((e: any) => {
-      console.error("PSV transition failed:", e);
-      isTransitioningRef.current = false;
-    });
+    viewerRef.current
+      .setPanorama(targetScene.url, {
+        transition: 500,
+        showLoader: false,
+        zoomTo: 70,
+      })
+      .then(() => {
+        markersPluginRef.current.setMarkers(buildMarkers(targetScene) as any);
+        setUiSceneId(targetScene.id);
+        isTransitioningRef.current = false;
+      })
+      .catch((e: any) => {
+        console.error("PSV transition failed:", e);
+        isTransitioningRef.current = false;
+      });
   };
-
 
   const handleHotspotClickRef = useRef<(sceneId: string) => void>(() => {});
   useEffect(() => {
     handleHotspotClickRef.current = (targetId: string) => {
-      if (!targetId || targetId === urlSceneId || isTransitioningRef.current) return;
+      if (!targetId || targetId === urlSceneId || isTransitioningRef.current)
+        return;
       setSearchParams({ sceneId: targetId }, { replace: true });
     };
   });
@@ -139,7 +186,9 @@ export const VirtualTour: React.FC<VirtualTourProps> = ({
     );
   }
 
-  const [initialSceneUrl] = useState(() => tourData.find((s) => s.id === urlSceneId)?.url || tourData[0].url);
+  const [initialSceneUrl] = useState(
+    () => tourData.find((s) => s.id === urlSceneId)?.url || tourData[0].url,
+  );
 
   return (
     <div className={`relative ${className} vt-root`}>
@@ -159,24 +208,21 @@ export const VirtualTour: React.FC<VirtualTourProps> = ({
         plugins={[
           [
             AutorotatePlugin,
-            { 
-              autostartDelay: 2500, 
-              autorotateSpeed: '1.5rpm',
+            {
+              autostartDelay: 2500,
+              autorotateSpeed: "1.5rpm",
               autorotatePitch: 0,
-            }
+            },
           ],
-          [
-            MarkersPlugin,
-            { markers: buildMarkers(uiScene) },
-          ],
+          [MarkersPlugin, { markers: buildMarkers(uiScene) }],
         ]}
         onReady={(instance: any) => {
           viewerRef.current = instance;
           const markersPlugin = instance.getPlugin(MarkersPlugin);
           markersPluginRef.current = markersPlugin;
-          
+
           if (markersPlugin) {
-            markersPlugin.addEventListener('select-marker', (e: any) => {
+            markersPlugin.addEventListener("select-marker", (e: any) => {
               const targetSceneId =
                 e.marker?.data?.targetSceneId ??
                 e.marker?.config?.data?.targetSceneId;
@@ -198,7 +244,9 @@ export const VirtualTour: React.FC<VirtualTourProps> = ({
           <span className="text-white font-bold text-xs">360</span>
         </div>
         <div>
-          <h3 className="text-white font-bold text-sm tracking-wide">{uiScene.title}</h3>
+          <h3 className="text-white font-bold text-sm tracking-wide">
+            {uiScene.title}
+          </h3>
           <p className="text-slate-400 text-[10px] uppercase font-black tracking-widest">
             Select nodes to navigate
           </p>
