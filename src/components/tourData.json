@@ -1714,6 +1714,208 @@
             "z": -4226.38962680558
           }
         }
+      },
+      {
+        "id": "hs_rwullf",
+        "title": "Skill Lab Entry",
+        "targetSceneId": "344edb7d",
+        "coords": {
+          "plane": {
+            "x": 1623.184853850895,
+            "y": -636.2887170863155,
+            "z": -980.0038768993209
+          },
+          "scene": {
+            "x": 1623.184853850895,
+            "y": -636.2887170863155,
+            "z": -980.0038768993209
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "344edb7d",
+    "title": "Skill Lab Entry",
+    "url": "/virtual-tour/images/scene-344edb7d.jpg",
+    "previewUrl": "/virtual-tour/images/scene-thumb-344edb7d.jpg",
+    "hotspots": [
+      {
+        "id": "hs_83xj66",
+        "title": "Skill Lab 1",
+        "targetSceneId": "5aaec5fcd686",
+        "coords": {
+          "plane": {
+            "x": 1806.2734089777566,
+            "y": -816.4651433213412,
+            "z": 266.0094768258007
+          },
+          "scene": {
+            "x": 1806.2734089777566,
+            "y": -816.4651433213412,
+            "z": 266.0094768258007
+          }
+        }
+      },
+      {
+        "id": "hs_g92wc7",
+        "title": "Ground Floor (I)",
+        "targetSceneId": "teGSuYAXlLq",
+        "coords": {
+          "plane": {
+            "x": -1632.6697212414329,
+            "y": -990.1074201938511,
+            "z": -595.0435932085137
+          },
+          "scene": {
+            "x": -1632.6697212414329,
+            "y": -990.1074201938511,
+            "z": -595.0435932085137
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "5aaec5fcd686",
+    "title": "Skill Lab 1 (View 1)",
+    "url": "/virtual-tour/images/scene-5aaec5fcd686.jpg",
+    "previewUrl": "/virtual-tour/images/scene-thumb-5aaec5fcd686.jpg",
+    "hotspots": [
+      {
+        "id": "hs_225dqp",
+        "title": "Skill Lab 1 (View 2)",
+        "targetSceneId": "7c1f717ce26e",
+        "coords": {
+          "plane": {
+            "x": -1209.0961988094632,
+            "y": -734.3495703052785,
+            "z": 1413.795278891877
+          },
+          "scene": {
+            "x": -1209.0961988094632,
+            "y": -734.3495703052785,
+            "z": 1413.795278891877
+          }
+        }
+      },
+      {
+        "id": "hs_xo86uo",
+        "title": "Skill Lab 1 (View 3)",
+        "targetSceneId": "9c4cf471433f",
+        "coords": {
+          "plane": {
+            "x": -1343.813289210227,
+            "y": -850.8586940139422,
+            "z": -1212.5202375889978
+          },
+          "scene": {
+            "x": -1343.813289210227,
+            "y": -850.8586940139422,
+            "z": -1212.5202375889978
+          }
+        }
+      },
+      {
+        "id": "hs_osbxic",
+        "title": "Skill Lab Entry",
+        "targetSceneId": "344edb7d",
+        "coords": {
+          "plane": {
+            "x": 1686.051715235633,
+            "y": -996.5234857846905,
+            "z": -405.1796587077262
+          },
+          "scene": {
+            "x": 1686.051715235633,
+            "y": -996.5234857846905,
+            "z": -405.1796587077262
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "7c1f717ce26e",
+    "title": "Skill Lab 1 (View 2)",
+    "url": "/virtual-tour/images/scene-7c1f717ce26e.jpg",
+    "previewUrl": "/virtual-tour/images/scene-thumb-7c1f717ce26e.jpg",
+    "hotspots": [
+      {
+        "id": "hs_6h54t0",
+        "title": "Skill Lab 1 (View 1)",
+        "targetSceneId": "5aaec5fcd686",
+        "coords": {
+          "plane": {
+            "x": -128.98878903023092,
+            "y": -616.0585078083313,
+            "z": -1898.376624187489
+          },
+          "scene": {
+            "x": -128.98878903023092,
+            "y": -616.0585078083313,
+            "z": -1898.376624187489
+          }
+        }
+      },
+      {
+        "id": "hs_ngkrka",
+        "title": "Skill Lab 1 (View 3)",
+        "targetSceneId": "9c4cf471433f",
+        "coords": {
+          "plane": {
+            "x": -747.2770289129664,
+            "y": -611.8346555956246,
+            "z": -1751.3524477589292
+          },
+          "scene": {
+            "x": -747.2770289129664,
+            "y": -611.8346555956246,
+            "z": -1751.3524477589292
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "9c4cf471433f",
+    "title": "Skill Lab 1 (View 3)",
+    "url": "/virtual-tour/images/scene-9c4cf471433f.jpg",
+    "previewUrl": "/virtual-tour/images/scene-thumb-9c4cf471433f.jpg",
+    "hotspots": [
+      {
+        "id": "hs_c4x9kh",
+        "title": "Skill lab 1 (View 2)",
+        "targetSceneId": "7c1f717ce26e",
+        "coords": {
+          "plane": {
+            "x": 1425.4298277443688,
+            "y": -991.5686241324163,
+            "z": -992.4421745435881
+          },
+          "scene": {
+            "x": 1425.4298277443688,
+            "y": -991.5686241324163,
+            "z": -992.4421745435881
+          }
+        }
+      },
+      {
+        "id": "hs_y6w5ag",
+        "title": "Skil Lab 1 (View 1)",
+        "targetSceneId": "5aaec5fcd686",
+        "coords": {
+          "plane": {
+            "x": 955.0206968907852,
+            "y": -608.7121865102549,
+            "z": -1648.4553201419028
+          },
+          "scene": {
+            "x": 955.0206968907852,
+            "y": -608.7121865102549,
+            "z": -1648.4553201419028
+          }
+        }
       }
     ]
   },
@@ -1780,79 +1982,6 @@
         }
       }
     ]
-  },
-  {
-    "id": "QrCPnWY5p",
-    "title": "Library Entry",
-    "url": "/virtual-tour/images/scene-QrCPnWY5p.jpg",
-    "previewUrl": "/virtual-tour/images/scene-thumb-QrCPnWY5p.jpg",
-    "hotspots": [
-      {
-        "id": "1anxuc08p",
-        "title": "Library Interior (I)",
-        "targetSceneId": "GPa7xDGTN",
-        "coords": {
-          "plane": {
-            "x": -489.8918695778223,
-            "y": -199.1100000000001,
-            "z": 397.49358724445045
-          },
-          "scene": {
-            "x": -3739.7255675443066,
-            "y": -1525.8386176073154,
-            "z": 3028.2285905615317
-          }
-        }
-      },
-      {
-        "id": "chnTtxEEV",
-        "title": "Librarian Office  - Ground Floor (I)",
-        "targetSceneId": "TmtoGFcukeI",
-        "coords": {
-          "plane": {
-            "x": -751.2597425059171,
-            "y": -199.66000000000005,
-            "z": 209.77616432684184
-          },
-          "scene": {
-            "x": -4709.580655250952,
-            "y": -1253.0066298510517,
-            "z": 1312.357293484697
-          }
-        }
-      },
-      {
-        "id": "jRJiu8olt",
-        "title": "Ground Floor (I)",
-        "targetSceneId": "teGSuYAXlLq",
-        "coords": {
-          "plane": {
-            "x": 52.92664269083636,
-            "y": -199.51999999999995,
-            "z": -219.97870533442423
-          },
-          "scene": {
-            "x": 881.419220305697,
-            "y": -3338.4046412600715,
-            "z": -3682.4354327978385
-          }
-        }
-      }
-    ]
-  },
-  {
-    "id": "GPa7xDGTN",
-    "title": "Library Interior (I)",
-    "url": "/virtual-tour/images/scene-GPa7xDGTN.jpg",
-    "previewUrl": "/virtual-tour/images/scene-thumb-GPa7xDGTN.jpg",
-    "hotspots": []
-  },
-  {
-    "id": "TmtoGFcukeI",
-    "title": "Librarian Office  - Ground Floor (I)",
-    "url": "/virtual-tour/images/scene-TmtoGFcukeI.jpg",
-    "previewUrl": "/virtual-tour/images/scene-thumb-TmtoGFcukeI.jpg",
-    "hotspots": []
   },
   {
     "id": "EVHn5HBSq",
