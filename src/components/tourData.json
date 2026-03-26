@@ -5654,11 +5654,154 @@
             "z": 1281.5873306692238
           }
         }
+      },
+      {
+        "id": "hs_ime790",
+        "title": "Girl's Hostel View",
+        "targetSceneId": "fnndvwwei",
+        "coords": {
+          "plane": {
+            "x": 1365.6814962450082,
+            "y": -889.9773052574999,
+            "z": -1158.8159676758833
+          },
+          "scene": {
+            "x": 1365.6814962450082,
+            "y": -889.9773052574999,
+            "z": -1158.8159676758833
+          }
+        }
       }
     ]
   },
   {
-    "id": "T2UcAkhP1",
+    "id": "fnndvwwei",
+    "title": "Girl's Hostel View",
+    "url": "/virtual-tour/images/scene-fnndvwwei.jpg",
+    "previewUrl": "/virtual-tour/images/scene-thumb-fnndvwwei.jpg",
+    "hotspots": [
+      {
+        "id": "hs_dacdg2",
+        "title": "Girl's Hostel Front View",
+        "targetSceneId": "1-eH8pLDL",
+        "coords": {
+          "plane": {
+            "x": -1614.6343869940438,
+            "y": -1079.7481616508933,
+            "z": 476.5497914676763
+          },
+          "scene": {
+            "x": -1614.6343869940438,
+            "y": -1079.7481616508933,
+            "z": 476.5497914676763
+          }
+        }
+      },
+      {
+        "id": "hs_gmpa6h",
+        "title": "Way To Hostel",
+        "targetSceneId": "bbkseplou",
+        "coords": {
+          "plane": {
+            "x": 1861.8468010492065,
+            "y": -351.45613323155095,
+            "z": -640.3163872936276
+          },
+          "scene": {
+            "x": 1861.8468010492065,
+            "y": -351.45613323155095,
+            "z": -640.3163872936276
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "bbkseplou",
+    "title": "Way To Hostel",
+    "url": "/virtual-tour/images/scene-bbkseplou.jpg",
+    "previewUrl": "/virtual-tour/images/scene-thumb-bbkseplou.jpg",
+    "hotspots": [
+      {
+        "id": "hs_y8efok",
+        "title": "Girl's Hostel View",
+        "targetSceneId": "fnndvwwei",
+        "coords": {
+          "plane": {
+            "x": -328.7809266724105,
+            "y": -283.45711923916804,
+            "z": -1952.3204562287062
+          },
+          "scene": {
+            "x": -328.7809266724105,
+            "y": -283.45711923916804,
+            "z": -1952.3204562287062
+          }
+        }
+      },
+      {
+        "id": "hs_nomrz5",
+        "title": "Way To Gazebo",
+        "targetSceneId": "oxxnwjanp",
+        "coords": {
+          "plane": {
+            "x": -1941.910482135077,
+            "y": -172.05218158482165,
+            "z": -446.5218093059023
+          },
+          "scene": {
+            "x": -1941.910482135077,
+            "y": -172.05218158482165,
+            "z": -446.5218093059023
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "oxxnwjanp",
+    "title": "Way To Gazebo",
+    "url": "/virtual-tour/images/scene-oxxnwjanp.jpg",
+    "previewUrl": "/virtual-tour/images/scene-thumb-oxxnwjanp.jpg",
+    "hotspots": [
+      {
+        "id": "hs_pvn0lt",
+        "title": "Girl's Hostel View",
+        "targetSceneId": "fnndvwwei",
+        "coords": {
+          "plane": {
+            "x": -1656.4594618733956,
+            "y": -115.90308080662084,
+            "z": 1114.7683737125099
+          },
+          "scene": {
+            "x": -1656.4594618733956,
+            "y": -115.90308080662084,
+            "z": 1114.7683737125099
+          }
+        }
+      },
+      {
+        "id": "hs_l2w8i4",
+        "title": "Hostel Path",
+        "targetSceneId": "bbkseplou",
+        "coords": {
+          "plane": {
+            "x": -1738.2687999921739,
+            "y": -276.72238421959645,
+            "z": -949.6558855951929
+          },
+          "scene": {
+            "x": -1738.2687999921739,
+            "y": -276.72238421959645,
+            "z": -949.6558855951929
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "T2UcAkhP6",
     "title": "Girls Hostel Midway",
     "url": "/virtual-tour/images/scene-T2UcAkhP1.jpg",
     "previewUrl": "/virtual-tour/images/scene-thumb-T2UcAkhP1.jpg",
