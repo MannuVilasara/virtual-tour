@@ -113,6 +113,41 @@ export const VirtualTour: React.FC<VirtualTourProps> = ({
     [uiSceneId],
   );
 
+  const imageCacheRef = useRef<Map<string, HTMLImageElement>>(new Map());
+
+  useEffect(() => {
+    if (!uiScene?.hotspots) return;
+
+    const neededUrls = new Set<string>();
+    uiScene.hotspots.forEach((hs: any) => {
+      if (hs.targetSceneId && hs.targetSceneId !== uiScene.id) {
+        const targetScene = tourData.find((s) => s.id === hs.targetSceneId);
+        if (targetScene?.url) {
+          neededUrls.add(targetScene.url);
+        }
+      }
+    });
+
+    const cache = imageCacheRef.current;
+
+    // Remove images that are no longer needed
+    for (const [url, img] of cache.entries()) {
+      if (!neededUrls.has(url)) {
+        img.src = ""; // Free memory
+        cache.delete(url);
+      }
+    }
+
+    // Preload new images
+    for (const url of neededUrls) {
+      if (!cache.has(url)) {
+        const img = new Image();
+        img.src = url;
+        cache.set(url, img);
+      }
+    }
+  }, [uiScene]);
+
   useEffect(() => {
     if (
       urlSceneId !== uiSceneId &&
