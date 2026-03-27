@@ -303,19 +303,19 @@ export const VirtualTour: React.FC<VirtualTourProps> = ({
         width="100%"
         defaultYaw={0}
         defaultPitch={0}
-        defaultZoomLvl={50}
+        defaultZoomLvl={0}
         navbar={false}
         touchmoveTwoFingers={false}
         mousewheelCtrlKey={false}
         moveInertia={true}
-        moveSpeed={0.8}
-        zoomSpeed={0}
+        moveSpeed={1}
+        zoomSpeed={1.5}
         plugins={[
           [
             AutorotatePlugin,
             {
               autostartDelay: 2500,
-              autorotateSpeed: "1.5rpm",
+              autorotateSpeed: "1.3rpm",
               autorotatePitch: 0,
             },
           ],
